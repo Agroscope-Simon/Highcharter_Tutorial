@@ -8,7 +8,7 @@ library(here)
 # Load data
 
 nations <- read_csv(here("data", "nations.csv")) %>%
-  mutate(gdp_tn = gdp_percap*population/1000000000000)
+  mutate(gdp_tn = round(gdp_percap*population/1000000000000, 2))
   
 # prepare data
 big4 <- nations %>%
@@ -19,4 +19,7 @@ big4 <- nations %>%
 
 big4 %>% 
 hchart("streamgraph", hcaes(x = year, y = gdp_tn, group = country))
-                
+
+
+big4 %>% 
+  hchart("bar", hcaes(x = year, y = gdp_tn, group = country))
