@@ -18,5 +18,5 @@ big4 <- nations %>%
 # basic symbol-and-line chart, default settings
 
 big4 %>% 
-hchart("line", hcaes(x = year, y = gdp_tn, group = country))
+hchart("streamgraph", hcaes(x = year, y = gdp_tn, group = country))
                 
